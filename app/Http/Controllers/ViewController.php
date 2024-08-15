@@ -22,6 +22,27 @@ class ViewController extends Controller
         }
         return view('registration');
     }
+    public function forgottenPassword()
+    {
+        if(Auth::check()){
+            return redirect()->route('dashboard');
+        }
+        return view('forgottenPassword');
+    }
+    public function checkOtpCode()
+    {
+        if(Auth::check()){
+            return redirect()->route('dashboard');
+        }
+        return view('otp');
+    }
+    public function newPassword()
+    {
+        if(Auth::check()){
+            return redirect()->route('dashboard');
+        }
+        return view('newPassword');
+    }
 
     public function logout()
     {

@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
-    <title>Authentification</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <form action="{{ route('registration.process') }}" method="POST">
+        <form action="{{ route('newPassword.process') }}" method="POST">
             @csrf
-            <h1>Inscription</h1>
+            <h1>Nouveau mot de passe</h1>
     
             @if ($errors->any())
                 <ul class="alert alert-danger signal">
@@ -22,19 +23,18 @@
                 <div>{{ $message }}</div><br>
             @endif
     
-            <label for="name">Nom d'utilisateur</label><br>
-            <input type="text" name="name" id="name"  placeholder="Saisir le nom ici ..."><br><br>
-    
-            <label for="email">Email</label><br>
-            <input type="text" name="email" id="email"  placeholder="Saisir l'e-mail ici ..."><br><br>
-    
-            <label for="password">Mot de passe</label><br>
+            @if ($message = Session::get('success'))
+                <div>{{ $message }}</div><br>
+            @endif
+        
+            <label for="password">Nouveau mot de passe</label><br>
             <input type="password" name="password" id="password"  placeholder="Saisir le mot de passe ici ..."><br><br>
     
-            <label for="passwordConfirm">Confirmer mot de passe</label><br>
-            <input type="password" name="passwordConfirm" id="passwordConfirm"  placeholder="Confirmer le mot de passe ici ..."><br><br>
+            <input type="hidden" name="email" id="email" value="{{ session()->get('email') }}">
+            <input type="hidden" name="code" id="code" value="{{ session()->get('code') }}">
     
-            <a href="{{ route('login') }}">Se connecter</a><br><br>
+            <label for="passwordConfirm">Confirmer nouveau mot de passe</label><br>
+            <input type="password" name="passwordConfirm" id="passwordConfirm"  placeholder="Confirmer le nouveau mot de passe ici ..."><br><br>
     
             <button class="button" type="submit">Soumettre</button>
         </form>

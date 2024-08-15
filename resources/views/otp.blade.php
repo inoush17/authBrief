@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
-    <title>Authentification</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
-
 <body>
     <div class="container">
-        <form action="{{ route('login.process') }}" method="POST">
+        <form action="{{ route('otpCode.process') }}" method="POST">
             @csrf
-            <h1>Connexion</h1>
+            <h1>Code de confirmation</h1>
     
             @if ($errors->any())
                 <ul class="alert alert-danger signal">
@@ -23,14 +23,13 @@
                 <div>{{ $message }}</div><br>
             @endif
     
-            <label for="email">Email</label><br>
-            <input type="text" name="email" id="email"  placeholder="Saisir l'e-mail ici ..."><br><br>
+            <p class="paragraphe">
+                Un code de confirmation à été envoyé <br> à votre adresse e-mail. <br> Saississez-le dans le champs pour continuer.
+            </p>
     
-            <label for="password">Mot de passe</label><br>
-            <input type="password" name="password" id="password"  placeholder="Saisir le mot de passe ici ..."><br><br>
-            <a href="{{ route('forgottenPassword') }}">Mot de passe oublié ?</a><br><br>
-    
-            <a href="{{ route('registration') }}">S'inscrire</a><br><br>
+            <label for="code">Code de confirmation</label><br>
+            <input type="hidden" name="email" id="email" value="{{ session()->get('email') }}">
+            <input type="text" name="code" id="code" autocomplete="off" placehorder="Saisir le code ici ..."><br><br>
     
             <button class="button" type="submit">Soumettre</button>
         </form>

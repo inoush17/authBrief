@@ -1,5 +1,6 @@
 body{
-    background-image: url(../images/auth.png);
+    /* background-image: url(../images/auth.png); */
+    background-color: aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,8 +10,14 @@ body{
     overflow-x: hidden;
 }
 
+.signal{
+    color: red;
+    background-color: rgba(255, 255, 255, 0.684);
+    border-radius: 5px;
+}
+
 .container{
-    background-color: rgba(255, 68, 0, 0.526);
+    background-color: rgba(0, 0, 0, 0.456);
     border-radius: 10px;
     width: 40%;
     height: 70%;
@@ -19,21 +26,33 @@ body{
     justify-content: center;
 }
 
+.paragraphe{
+    color: white;
+}
+
 .container h1{
-    text-transform: uppercase;
+    text-transform: unset;
     color: beige;
+    font-size: 40px;
+    text-align: center;
+}
+
+.text-center{
+    text-align: center;
 }
 
 .container a{
-    color: violet;
-    font-size: 18px;
+    color: blue;
+    font-size: 16px;
+    text-decoration: none;
 }
+
 
 .container input{
     width: 100%;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.51);
+    background-color: rgba(255, 255, 255, 0.77);
     color: black;
     border: white solid 1px;
 }
@@ -43,7 +62,7 @@ body{
 }
 
 .button{
-    background-color: orangered;
+    background-color: black;
     padding: 5px ;
     width: 100%;
     border-radius: 5px;
@@ -58,5 +77,5 @@ body{
     width: 100%;
     border-radius: 5px;
     border: white solid 1px;
-    color: orangered;
+    color: black;
 }

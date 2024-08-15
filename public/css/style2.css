@@ -1,10 +1,10 @@
 .app-bar a{
     text-decoration: none;
     background-color: rgba(245, 245, 220, 0.421);
-    border: orangered solid 2px;
+    border: black solid 2px;
     padding: 8px;
     border-radius: 5px;
-    color: orangered;
+    color: black;
 }
 
 .text-right{
